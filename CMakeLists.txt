@@ -9,4 +9,7 @@ option(REQUIRE_FAST_LAPACK
 error out if e.g. OpenBLAS is not found" OFF)
 
 add_subdirectory(src)
-add_subdirectory(test)
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+    message("-- Test building allowed")
+    add_subdirectory(test)
+endif()
